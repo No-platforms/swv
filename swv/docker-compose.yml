@@ -186,6 +186,12 @@ services:
   varnish:
     image: varnish:latest
     volumes:
-      - varnish/default.vcl:/etc/varnish/default.vcl
+      - ./varnish/default.vcl:/etc/varnish/default.vcl
 #    ports:
 #      - "8080:8080"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.0.2
+#    ports: "80"
+    environment:
+      - PMA_ARBITRARY=1
+      - UPLOAD_LIMIT=200M
