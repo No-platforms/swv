@@ -179,6 +179,9 @@ services:
     volumes:
       - ./wordpress:/var/www/html
       - ./php/upload.ini:/usr/local/etc/php/conf.d/uploads.ini
+    networks:
+      safeline-ce:
+        ipv4_address: ${SUBNET_PREFIX}.11
   mariadb:
     image: linuxserver/mariadb:110.4.14mariabionic-ls77
     volumes:
@@ -187,11 +190,17 @@ services:
     image: varnish:latest
     volumes:
       - ./varnish/default.vcl:/etc/varnish/default.vcl
-#    ports:
-#      - "8080:8080"
+    #    ports:
+    #      - "8080:8080"
+    networks:
+      safeline-ce:
+        ipv4_address: ${SUBNET_PREFIX}.12
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:5.0.2
 #    ports: "80"
     environment:
       - PMA_ARBITRARY=1
       - UPLOAD_LIMIT=200M
+    networks:
+      safeline-ce:
+        ipv4_address: ${SUBNET_PREFIX}.12
