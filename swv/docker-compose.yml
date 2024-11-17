@@ -182,6 +182,11 @@ services:
     networks:
       safeline-ce:
         ipv4_address: ${SUBNET_PREFIX}.11
+    environment:
+      - WORDPRESS_DB_HOST=${WORDPRESS_DB_HOST}
+      - WORDPRESS_DB_USER=${WORDPRESS_DB_USER}
+      - WORDPRESS_DB_PASSWORD=${WORDPRESS_DB_PASSWORD}
+      - WORDPRESS_DB_NAME=${WORDPRESS_DB_NAME}
   mariadb:
     container_name: mariadb
     image: linuxserver/mariadb:110.4.14mariabionic-ls77
@@ -190,6 +195,11 @@ services:
     networks:
       safeline-ce:
         ipv4_address: ${SUBNET_PREFIX}.14
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
   varnish:
     image: varnish:latest
     volumes:
