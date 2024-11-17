@@ -186,6 +186,9 @@ services:
     image: linuxserver/mariadb:110.4.14mariabionic-ls77
     volumes:
       - ./database:/config
+    networks:
+      safeline-ce:
+        ipv4_address: ${SUBNET_PREFIX}.14
   varnish:
     image: varnish:latest
     volumes:
