@@ -203,4 +203,4 @@ services:
       - UPLOAD_LIMIT=200M
     networks:
       safeline-ce:
-        ipv4_address: ${SUBNET_PREFIX}.12
+        ipv4_address: ${SUBNET_PREFIX}.13
