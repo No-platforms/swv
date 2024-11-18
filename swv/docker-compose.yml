@@ -177,7 +177,7 @@ services:
     #  ports:
     #    - "80:80"
     volumes:
-      - ./wordpress:/var/www/html
+      - ./wp-content:/var/www/html/wp-content
       - ./php/upload.ini:/usr/local/etc/php/conf.d/uploads.ini
     networks:
       safeline-ce:
