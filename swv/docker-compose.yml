@@ -239,3 +239,6 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /data/nginx/html/.well-known:/opt/www/.well-known
       - /data/mailserver:/data
+    networks:
+      safeline-ce:
+        ipv4_address: ${SUBNET_PREFIX}.15
