@@ -233,7 +233,7 @@ services:
     environment:
       - LETSENCRYPT_EMAIL=info@analogic.cz
       - LETSENCRYPT_HOST=mail.poste.io
-      - VIRTUAL_HOST=mail.poste.io
+      - VIRTUAL_HOST=${MAIL_DOMAIN}
       - HTTPS=OFF
     volumes:
       - /etc/localtime:/etc/localtime:ro
