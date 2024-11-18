@@ -218,3 +218,24 @@ services:
     networks:
       safeline-ce:
         ipv4_address: ${SUBNET_PREFIX}.13
+  mailserver:
+    image: poste.io/mailserver:dev
+    container_name: mailserver
+    restart: unless-stopped
+    ports:
+      - "25:25"
+      - "110:110"
+      - "143:143"
+      - "587:587"
+      - "993:993"
+      - "995:995"
+      - "4190:4190"
+    environment:
+      - LETSENCRYPT_EMAIL=info@analogic.cz
+      - LETSENCRYPT_HOST=mail.poste.io
+      - VIRTUAL_HOST=mail.poste.io
+      - HTTPS=OFF
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /data/nginx/html/.well-known:/opt/www/.well-known
+      - /data/mailserver:/data
