@@ -232,7 +232,7 @@ services:
       - "4190:4190"
     environment:
       - LETSENCRYPT_EMAIL=info@analogic.cz
-      - LETSENCRYPT_HOST=mail.poste.io
+      - LETSENCRYPT_HOST=${MAIL_DOMAIN}
       - VIRTUAL_HOST=${MAIL_DOMAIN}
       - HTTPS=OFF
     volumes:
